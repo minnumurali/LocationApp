@@ -2,9 +2,9 @@ import moment from "moment";
 import React, { useEffect, useRef } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { Button } from "react-native-paper";
-import { checkHttpStat, getLocationDetails } from "../actions";
-import CurrentLocation from "../components/current";
-import PreviousLocations from "../components/previous";
+import { checkHttpStat, getLocationDetails } from "../components";
+import CurrentLocation from "../components/CurrentLoc";
+import PreviousLocations from "../components/PreviousLoc";
 import { SET_CURRENT_LOCATION, SET_LOCATION_HISTORY } from "../context/reducer";
 import { useAppState, useDispatch } from "../hooks/appstate";
 import { useInterval } from "../hooks/intervals";
@@ -85,7 +85,9 @@ const Home: React.FC = () => {
       <Button
         style={styles.button}
         labelStyle={{ color: "white", fontSize: 18 }}
-        onPress={clearAll} >Clear All</Button>
+        onPress={clearAll} 
+        testID='clearButton'
+        >Clear All</Button>
     </View>
   );
 };
